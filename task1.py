@@ -20,3 +20,22 @@
 #
 # Пример выходных данных
 # [1, 2, 4, 3, 5]  # Возможен и другой порядок, зависящий от реализации DFS
+
+visited = []
+graph = {
+    1: [2, 3],
+    2: [1, 4],
+    3: [1, 5],
+    4: [2],
+    5: [3]}
+
+start = 1
+
+def dfs (ver):
+    if ver not in visited:
+        visited.append(ver)
+        for stack in graph[ver]:
+            dfs(stack)
+
+dfs(start)
+print(visited)
