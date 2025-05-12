@@ -88,6 +88,7 @@ def dfs (ver):
 
 visited = []
 dfs(strt)
+ostrov = 1
 if strt in visited and end in visited:
     print('yes')
     print(visited)
@@ -100,5 +101,7 @@ for i in country:
         visited = []
         dfs(i)
         print(visited)
+        ostrov += 1
 
-print(country)
+print('колво островов', ostrov)
+print('вся страна', country)
