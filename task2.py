@@ -60,3 +60,45 @@
 # 5: [5]
 # 6: [6]
 # 7: [7]
+
+country = {}
+n = int(input('колва городов: '))
+m = int(input('колва дорог: '))
+for i in range (m):
+    u = int(input('первый город связи: '))
+    v = int(input('второй город связи: '))
+    if u not in country:
+        country[u] = []
+    country[u].append(v)
+    if v not in country:
+        country[v] = []
+    country[v].append(u)
+
+strt = int(input('начало пути: '))
+end = int(input('конец пути: '))
+
+def dfs (ver):
+    if ver not in visited:
+        visited.append(ver)
+        for stack in country[ver]:
+            dfs(stack)
+
+
+
+
+visited = []
+dfs(strt)
+if strt in visited and end in visited:
+    print('yes')
+    print(visited)
+else:
+    print('no')
+    print(visited)
+
+for i in country:
+    if i not in visited:
+        visited = []
+        dfs(i)
+        print(visited)
+
+print(country)
